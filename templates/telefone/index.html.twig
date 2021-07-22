@@ -8,10 +8,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Ddd</th>
-                <th>Numero</th>
-                <th>actions</th>
+                <th>ID</th>
+                <th>DDD</th>
+                <th>Número</th>
+                <th>Detalhes</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +22,19 @@
                 <td>{{ telefone.ddd }}</td>
                 <td>{{ telefone.numero }}</td>
                 <td>
-                    <a href="{{ path('telefone_show', {'id': telefone.id}) }}">show</a>
-                    <a href="{{ path('telefone_edit', {'id': telefone.id}) }}">edit</a>
+                    <a href="{{ path('telefone_show', {'id': telefone.id}) }}">MOSTRAR</a>
+                </td>
+                <td>
+                    <a href="{{ path('telefone_edit', {'id': telefone.id}) }}">EDITAR</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">SEM REGISTROS ENCONTRADOS</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('telefone_new') }}">Create new</a>
+    <a href="{{ path('telefone_new') }}">ADICIONAR NOVO</a>
 {% endblock %}
