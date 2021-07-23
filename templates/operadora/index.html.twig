@@ -8,9 +8,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>ID</th>
                 <th>Nome</th>
-                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,10 +17,6 @@
             <tr>
                 <td>{{ operadora.id }}</td>
                 <td>{{ operadora.nome }}</td>
-                <td>
-                    <a href="{{ path('operadora_show', {'id': operadora.id}) }}">show</a>
-                    <a href="{{ path('operadora_edit', {'id': operadora.id}) }}">edit</a>
-                </td>
             </tr>
         {% else %}
             <tr>

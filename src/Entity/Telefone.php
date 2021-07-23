@@ -84,4 +84,11 @@ class Telefone
     {
         return $this->operadora;
     }
+    
+    public function setOperadora(?Operadora $operadora): self
+    {
+        $this->operadora = $operadora;
+
+        return $this;
+    }
 }

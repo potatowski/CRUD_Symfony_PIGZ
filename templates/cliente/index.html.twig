@@ -1,33 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cliente index{% endblock %}
+{% block title %}Lista de Clientes{% endblock %}
 
 {% block body %}
-    <h1>Lista de Clientes</h1>
+    <h1 class="">Lista de Clientes</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nome</th>
+                <th>NOME</th>
                 <th>CPF</th>
-                <th>Data de Nascimento</th>
-                <th>Mostrar</th>
-                <th>Editar</th>
+                <th>DATA DE NASCIMENTO</th>
+                <th>DETALHES</th>
+                <th>EDITAR</th>
             </tr>
         </thead>
         <tbody>
         {% for cliente in clientes %}
             <tr>
-                <td>{{ cliente.id }}</th>
                 <td>{{ cliente.nome }}</th>
                 <td>{{ cliente.cpf }}</th>
-                <td>{{ cliente.nascimento ? cliente.nascimento|date('Y-m-d') : '' }}</td>
+                <td>{{ cliente.nascimento ? cliente.nascimento|date('d-m-Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('cliente_show', {'id': cliente.id}) }}">MOSTRAR</a>
+                    <a href="{{ path('cliente_show', {'id': cliente.id}) }}" class="btn btn-light">MOSTRAR</a>
                 </td>
                 <td>
-                    <a href="{{ path('cliente_edit', {'id': cliente.id}) }}">EDITAR</a>
+                    <a href="{{ path('cliente_edit', {'id': cliente.id}) }}" class="btn btn-light">EDITAR</a>
                 </td>
             </tr>
         {% else %}
@@ -38,5 +36,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cliente_new') }}">ADICIONAR CLIENTE</a>
+    <a href="{{ path('cliente_new') }}" class="btn btn-primary">ADICIONAR CLIENTE</a>
 {% endblock %}

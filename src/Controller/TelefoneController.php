@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Cliente;
 use App\Entity\Telefone;
 use App\Form\TelefoneType;
+use App\Form\TelefoneClienteType;
 use App\Repository\TelefoneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,6 +34,32 @@ class TelefoneController extends AbstractController
     {
         $telefone = new Telefone();
         $form = $this->createForm(TelefoneType::class, $telefone);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($telefone);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('telefone_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('telefone/new.html.twig', [
+            'telefone' => $telefone,
+            'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/cliente/new", name="telefone_cliente_new", methods={"GET","POST"})
+     */
+    public function newCliente(Request $request): Response
+    {
+        $telefone = new Telefone();
+        $cliente = new Cliente();
+        $telefone->setCliente($cliente);
+
+        $form = $this->createForm(TelefoneClienteType::class, $telefone);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
