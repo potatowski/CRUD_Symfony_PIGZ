@@ -1,4 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 body {
-    background-color: white;
+    background-color: black;
+}
+input:invalid {
+    border: 3px solid red;
 }

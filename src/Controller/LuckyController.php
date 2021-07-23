@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
   {
     /**
      * Configurando a rota
-     * @Route("/lucky/number", name="aleatorio")
+     * @Route("/aleatorio", name="aleatorio")
      */
     public function number()
     {
