@@ -1,4 +1,5 @@
 <form method="post" action="{{ path('cliente_delete', {'id': cliente.id}) }}" onsubmit="return confirm('Você tem certeza que quer excluir esse cliente?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cliente.id) }}">
-    <button class="btn btn-danger">DELETAR</button>
+    
+    <button class="btn btn-danger my-2">DELETAR</button>
 </form>
