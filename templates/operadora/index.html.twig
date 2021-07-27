@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Operadora index{% endblock %}
+{% block title %}Lista de Operadoras{% endblock %}
 
 {% block body %}
-    <h1>Operadora index</h1>
+    <h1>Lista de Operadoras</h1>
 
     <table class="table">
         <thead>
@@ -20,11 +20,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">SEM RESULTADOS ENCOTRADOS, NENHUMA OPERADORA CADASTRADA</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('operadora_new') }}">Create new</a>
+    <a href="{{ path('operadora_new') }}" class="btn btn-light my-2">CADASTRAR OPERADORA</a>
 {% endblock %}
