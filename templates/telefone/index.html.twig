@@ -22,10 +22,10 @@
                 <td>{{ telefone.ddd }}</td>
                 <td>{{ telefone.numero }}</td>
                 <td>
-                    <a href="{{ path('telefone_show', {'id': telefone.id}) }}">MOSTRAR</a>
+                    <a href="{{ path('telefone_show', {'id': telefone.id}) }}" class="btn btn-light">MOSTRAR</a>
                 </td>
                 <td>
-                    <a href="{{ path('telefone_edit', {'id': telefone.id}) }}">EDITAR</a>
+                    <a href="{{ path('telefone_edit', {'id': telefone.id}) }}" class="btn btn-warning">EDITAR</a>
                 </td>
             </tr>
         {% else %}
