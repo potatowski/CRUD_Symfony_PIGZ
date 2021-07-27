@@ -2,7 +2,5 @@
     <a href="{{ path('cliente_index') }}" class="btn btn-outline-success me-2">Clientes Cadastrados<a>
     <a href="{{ path('telefone_index') }}" class="btn btn-outline-success me-2">Telefones<a>
     <a href="{{ path('operadora_index') }}" class="btn btn-outline-success me-2">Operadoras Cadastradas<a>
-    {% if app.user %}
     <a href="{{ path('app_logout') }}" class="btn btn-outline-danger me-2">Deslogar<a>
-    {% endif %}
 </nav>
