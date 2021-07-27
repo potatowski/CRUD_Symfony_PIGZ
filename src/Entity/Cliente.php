@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ClienteRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -32,7 +33,7 @@ class Cliente implements UserInterface
     private $cpf;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $nascimento;
 
@@ -137,9 +138,9 @@ class Cliente implements UserInterface
         return $this->cpf;
     }
 
-    public function getPassword()
-    {
-        
+    public function getPassword(): string
+    {    
+        return $this->nascimento->format('dmY');
     }
 
     public function getUserIdentifier()
