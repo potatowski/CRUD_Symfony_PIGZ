@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Cliente;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,11 @@ class ClienteType extends AbstractType
         $builder
             ->add('nome')
             ->add('cpf')
-            ->add('nascimento')
+            ->add('nascimento', BirthdayType::class,[
+                'placeholder' => [
+                    'year' => 'ANO', 'month' => 'MÊS', 'day' => 'DIA',
+                ]
+            ])
         ;
     }
 

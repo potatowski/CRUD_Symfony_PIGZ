@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>DATA DE NASCIMENTO</th>
-                <td>{{ cliente.nascimento ? cliente.nascimento|date('d-m-Y') : '' }}</td>
+                <td>{{ cliente.nascimento ? cliente.nascimento|date('d/m/Y') : '' }}</td>
             </tr>
             <tr>
                 <th>TELEFONES</th>
@@ -31,7 +31,6 @@
             </tr>
         </tbody>
     </table>
-
     <a href="{{ path('cliente_index') }}" class="btn btn-primary">VOLTAR PARA A LISTA</a>
     <a href="{{ path('cliente_edit', {'id': cliente.id}) }}" class="btn btn-warning">EDITAR</a>
     {{ include('cliente/_delete_form.html.twig') }}

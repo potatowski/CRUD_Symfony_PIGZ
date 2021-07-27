@@ -3,14 +3,17 @@
 namespace App\Entity;
 
 use App\Repository\ClienteRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Expr\FuncCall;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=ClienteRepository::class)
  */
-class Cliente
+class Cliente implements UserInterface
 {
     /**
      * @ORM\Id
@@ -30,7 +33,7 @@ class Cliente
     private $cpf;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $nascimento;
 
@@ -113,5 +116,35 @@ class Cliente
         }
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        return ['ROLE_CLIENTE'];   
+    }
+    
+    public function getSalt()
+    {
+        
+    }
+
+    public function eraseCredentials()
+    {
+        
+    }
+
+    public function getUsername()
+    {
+        return $this->cpf;
+    }
+
+    public function getPassword(): string
+    {    
+        return $this->nascimento->format('dmY');
+    }
+
+    public function getUserIdentifier()
+    {
+        return $this->id;
     }
 }

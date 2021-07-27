@@ -1,7 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 body {
-    background-color: black;
+    background-color: #FF5E13;
 }
-input:invalid {
-    border: 3px solid red;
+
+.login{
+    margin-top:270px;
+}
+
+.topCard{
+    background-color: #FF5E13;
 }

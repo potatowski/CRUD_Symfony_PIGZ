@@ -20,12 +20,12 @@
             <tr>
                 <td>{{ cliente.nome }}</th>
                 <td>{{ cliente.cpf }}</th>
-                <td>{{ cliente.nascimento ? cliente.nascimento|date('d-m-Y') : '' }}</td>
+                <td>{{ cliente.nascimento ? cliente.nascimento|date('d/m/Y') : '' }}</td>
                 <td>
                     <a href="{{ path('cliente_show', {'id': cliente.id}) }}" class="btn btn-light">MOSTRAR</a>
                 </td>
                 <td>
-                    <a href="{{ path('cliente_edit', {'id': cliente.id}) }}" class="btn btn-light">EDITAR</a>
+                    <a href="{{ path('cliente_edit', {'id': cliente.id}) }}" class="btn btn-warning">EDITAR</a>
                 </td>
             </tr>
         {% else %}
@@ -36,5 +36,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cliente_new') }}" class="btn btn-primary">ADICIONAR CLIENTE</a>
+    <a href="{{ path('cliente_new') }}" class="btn btn-primary my-2">ADICIONAR CLIENTE</a>
 {% endblock %}
